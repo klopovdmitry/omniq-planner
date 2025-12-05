@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Планирование закрыто</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      height: 100vh;
+      background: url("assets/wall.png") no-repeat center center;
+      background-size: cover;
+      color: var(--color-text);
+      font-family: var(--font-family);
+    }
+    .placeholder-card {
+      background: var(--color-card-bg);
+      padding: 40px 24px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+      max-width: 420px;
+      width: 100%;
+      animation: fadeIn 0.6s ease;
+    }
+    .placeholder-card h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .placeholder-card p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+    }
+    .chip-info {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: var(--font-bold);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .chip-info:hover {
+      background: #b3050f; /* чуть темнее при наведении */
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="placeholder-card">
+    <h1>Планирование Q4 2025</h1>
+    <p>Планирование в команде B2B RTE начнется 22.09.2025.</p>
+    <a href="https://t.me/dimabeatmaker" target="_blank" class="chip-info">
+      По всем вопросам @dimabeatmaker
+    </a>
+  </div>
+</body>
+</html>

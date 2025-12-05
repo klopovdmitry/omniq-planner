@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniQ Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <!-- ====== HEADER ====== -->
+  <div class="header">
+    <div class="header-top">
+      <div class="header-text">
+        <h1>Готов выбрать задачи?</h1>
+        <p>От тебя зависит, чем займётся команда в следующем квартале.</p>
+      </div>
+      <div class="header-chip chip-q4">Q1 2026</div>
+    </div>
+
+    <div class="header-balance">
+      <span class="chip chip-frontend" id="frontendBalanceChip">Frontend: 0</span>
+      <span class="chip chip-backend" id="backendBalanceChip">Backend: 0</span>
+    </div>
+  </div>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <div class="categories" id="categories"></div>
+  <div class="products" id="products"></div>
+
+  <!-- ====== CART BUTTON ====== -->
+  <div class="cart-button" id="cartButton">
+    Отправить задачи <div class="cart-count" id="cartCount">0</div>
+  </div>
+
+  <!-- ====== CART MODAL ====== -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <h2>Выбранные задачи</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Итого: 0</div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Отправить</button>
+    </div>
+  </div>
+
+  <!-- ====== CONFIG + SCRIPT ====== -->
+  <!-- config.js должен идти ПЕРЕД script.js -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
