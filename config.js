@@ -54,7 +54,7 @@ window.APP_CONFIG = {
             "frontend": 5,
             "backend": 30,
             "category": "va",
-            "effect": "+100500 заказов"
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 2,
@@ -63,7 +63,7 @@ window.APP_CONFIG = {
             "frontend": 10,
             "backend": 50,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 3,
@@ -72,7 +72,7 @@ window.APP_CONFIG = {
             "frontend": 0,
             "backend": 10,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 4,
@@ -81,7 +81,7 @@ window.APP_CONFIG = {
             "frontend": 10,
             "backend": 20,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 5,
@@ -90,7 +90,7 @@ window.APP_CONFIG = {
             "frontend": 3,
             "backend": 20,
             "category": "billing",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 6,
@@ -99,7 +99,7 @@ window.APP_CONFIG = {
             "frontend": 5,
             "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 7,
@@ -108,7 +108,7 @@ window.APP_CONFIG = {
             "frontend": 5,
             "backend": 20,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 8,
@@ -117,7 +117,7 @@ window.APP_CONFIG = {
             "frontend": 0,
             "backend": 10,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 9,
@@ -126,16 +126,16 @@ window.APP_CONFIG = {
             "frontend": 2,
             "backend": 3,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 10,
-            "name": "Прекращение опроса статусов после получения статуса 'Выдан курьеру'",
+            "name": "Прекращение опроса статусов после получения финального статуса заказа",
             "description": "Прекращение опросов статусов заказа в интеграции с Rostics после получения финального статуса заказа (Доставлен или Отменен).",
             "frontend": 0,
             "backend": 10,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 11,
@@ -144,7 +144,7 @@ window.APP_CONFIG = {
             "frontend": 5,
             "backend": 20,
             "category": "admin",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 12,
@@ -153,7 +153,7 @@ window.APP_CONFIG = {
             "frontend": 0,
             "backend": 20,
             "category": "reactions",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 13,
@@ -162,187 +162,187 @@ window.APP_CONFIG = {
             "frontend": 0,
             "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 14,
             "name": "Раздел 'Отзывы'",
             "description": "Предоставление ресторанам интерфейса для централизованного управления отзывами клиентов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 15,
             "name": "Раздел 'Новости'",
             "description": "Предоставление ресторанам интерфейса для ознакомления с новостями сервиса 'Магнит Рестораны'.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 16,
             "name": "Раздел 'Статистика'",
             "description": "Предоставление ресторанам интерфейса с аналитикой и дашбордами.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 17,
             "name": "Раздел 'Идеи'",
             "description": "Предоставление ресторанам интерфейса для публикации своих идей касаемо сервиса 'Магнит Рестораны'.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 18,
             "name": "Подменные номера Ресторан -> Клиент",
             "description": "Система подменных номеров для защиты контактов ресторанов и клиентов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 19,
             "name": "Раздел 'Акции'",
             "description": "Предоставление ресторанам интерфейса для управление акциями, скидками и специальными предложениями.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 20,
             "name": "Раздел 'FAQ'",
             "description": "База знаний и часто задаваемых вопросов для ресторанов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 21,
             "name": "Управление временем приготовления заказов",
             "description": "Предоставление ресторанам интерфейса для временного увеличения времени готовки заказов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 22,
             "name": "Управление активностью типов доставки",
             "description": "Предоставление ресторанам интерфейса для управления (включения, выключения) подключенных типов доставки.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 23,
             "name": "Платное продвижение (буст в выдаче)",
             "description": "Предоставление ресторанам интерфейса для повышения видимости ресторана в ресторанной выдаче за дополнительную плату.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 24,
             "name": "Раздел 'Возвраты'",
             "description": "Предоставление ресторанам интерфейса для согласования возвратов денежных средств клиентам по отмененным или испорченным заказам.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 25,
             "name": "Расписание доступности категорий и позиций в меню",
             "description": "Настройка временных окон доступности блюд и разделов меню.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 26,
             "name": "Минимальное и максимальное количество модификатора",
             "description": "Ограничения на выбор дополнительных опций к блюдам.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 27,
             "name": "Предустановленное количество модификатора",
             "description": "Значения по умолчанию для выбора модификаторов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 28,
             "name": "Доработки для non food партнеров",
             "description": "Адаптация интерфейса для партнеров, не связанных с едой (цветы, товары и т.д.).",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 29,
             "name": "Вызов курьера LM на заказ для доставки курьером ресторана",
             "description": "Предоставление ресторанам интерфейса для вызова курьера LastMile для доставки заказа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 30,
             "name": "Добавление AppMetrica",
             "description": "Интеграция аналитики AppMetrica для отслеживания поведения пользователей.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 31,
             "name": "Новые пуши о событиях, связанных с заказом",
             "description": "Расширение системы уведомлений о статусах заказа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 32,
             "name": "Интеграция нотификаций с CusCom в веб версии",
             "description": "Подключение веб-уведомлений через систему CusCom.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 33,
             "name": "Раздел 'Сотрудники'",
             "description": "Предоставление ресторанам интерфейса для управления своими сотрудниками и выдаче им разного уровня ролей.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 34,
@@ -351,61 +351,61 @@ window.APP_CONFIG = {
             "frontend": 5,
             "backend": 15,
             "category": "va",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 35,
             "name": "Расписание доступности категорий и позиций в меню",
             "description": "Синхронизация временных окон доступности меню с внешними системами.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 36,
             "name": "Возвратная логистика",
             "description": "Механизм возврата заказов в рестораны.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 37,
             "name": "Предустановленное количество модификатора",
             "description": "Передача значений по умолчанию для модификаторов во внешние системы.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 38,
             "name": "Минимальное и максимальное количество модификатора",
             "description": "Синхронизация ограничений на модификаторы с партнерами.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 39,
             "name": "Адаптеры для non food партнеров",
             "description": "Интеграционные модули для партнеров не из сферы еды.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 40,
             "name": "Подменные номера Ресторан -> Клиент",
             "description": "Скрытие реальных номеров телефонов в интеграциях.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 41,
@@ -414,7 +414,7 @@ window.APP_CONFIG = {
             "frontend": 0,
             "backend": 10,
             "category": "integration",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 42,
@@ -423,106 +423,169 @@ window.APP_CONFIG = {
             "frontend": 10,
             "backend": 10,
             "category": "admin",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 43,
             "name": "Сервис зон",
             "description": "Вынос из сервиса rte-vendors функционала по управлению зонами доставки ресторанов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 44,
             "name": "Сурж зонами доставки",
             "description": "Функционал изменения зоны покрытия ресторана в зависимости от коэффициента суржа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 45,
             "name": "Лесенка доставки",
             "description": "Функционал управления стоимостью доставки в зависимости от суммы заказа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 46,
             "name": "Сурж условиями доставки",
             "description": "Функционал изменения стоимости доставки в зависимости от коэффициента суржа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 47,
             "name": "Сурж PDT",
             "description": "Функционал изменения прогнозируемого времени доставки (PDT) в зависимости от коэффициента суржа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "zones",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 48,
             "name": "Блокировка вендоров при росте отмен",
             "description": "Автоматическая блокировка ресторанов при превышении порога отмен заказов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "reactions",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 49,
             "name": "Ведение отчетности ресторанов по обособленным подразделениям (КПП)",
             "description": "Финансовая отчетность с учетом отдельных юрлиц/подразделений.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "billing",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 50,
             "name": "Алкофильтры",
             "description": "Функционал фильтров по ключевым словам, блокирующий позиции в меню для заказа.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "rte-menu",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 51,
             "name": "Раздел 'Меню' в админке",
             "description": "Интерфейс для менеджеров 'Магнит Рестораны' для управления и визуального контроля меню ресторанов.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "rte-menu",
-            "effect": ""
+            "effect": "Эффект не посчитан"
         },
         {
             "id": 52,
             "name": "Интерфейс для загрузки меню с помощью csv",
             "description": "Интерфейс для менеджеров 'Магнит Рестораны' для загрузки меню сети с помощью csv.",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "rte-menu",
-            "effect": ""
+            "effect": "Увеличение скорости загрузки меню в 24 раза"
         },
         {
             "id": 53,
             "name": "Адаптер для интеграции с Азубка Вкуса",
             "description": "Реализация адаптера для интеграции заказов, меню и стоков по контракту партнера",
-            "frontend": 0,
-            "backend": 0,
+            "frontend": 15,
+            "backend": 15,
             "category": "integration",
-            "effect": ""
+            "effect": "+ 2,4 млн/мес GMV"
+        },
+        {
+            "id": 54,
+            "name": "Поиск группы модификаторов по названию",
+            "description": "Добавить строку поиска по названию группы модификатора",
+            "frontend": 15,
+            "backend": 15,
+            "category": "va",
+            "effect": "Увеличение скорости загрузки меню"
+        },
+        {
+            "id": 55,
+            "name": "Редактирование цены и НДС модификатора",
+            "description": "Добавить возможность изменения цены и НДС модификатора",
+            "frontend": 15,
+            "backend": 15,
+            "category": "va",
+            "effect": "Увеличение скорости загрузки меню"
+        },
+        {
+            "id": 56,
+            "name": "Увеличить максимальный вес добавляемого фото",
+            "description": "Рестораны присылают фотографии, вес которых превышает доступный для загрузки лимит",
+            "frontend": 15,
+            "backend": 15,
+            "category": "va",
+            "effect": "Увеличение скорости загрузки меню"
+        },
+        {
+            "id": 57,
+            "name": "Добавление модификатора в стоп-лист",
+            "description": "Добавить возможность постановки модификатора в стоп-лист",
+            "frontend": 15,
+            "backend": 15,
+            "category": "va",
+            "effect": "Снижение количества отмененных заказов"
+        },
+        {
+            "id": 58,
+            "name": "Визуальное отображение позиций из стоп-листа в интерфейсе",
+            "description": "Добавить возможность постановки модификатора в стоп-лист",
+            "frontend": 15,
+            "backend": 15,
+            "category": "va",
+            "effect": "Эффект не посчитан"
+        },
+        {
+            "id": 59,
+            "name": "Период действия комиссии",
+            "description": "Добавить возможность указания периодов действия величины комиссии для каждого типа доставки",
+            "frontend": 15,
+            "backend": 15,
+            "category": "admin",
+            "effect": "Эффект не посчитан"
+        },
+        {
+            "id": 59,
+            "name": "Кастомизация шаблона пиьсма с отчетом",
+            "description": "Кастомизировать шаблон письма с отчетом",
+            "frontend": 15,
+            "backend": 15,
+            "category": "billing",
+            "effect": "Эффект не посчитан"
         }
     ]
 };
