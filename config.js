@@ -63,7 +63,7 @@ window.APP_CONFIG = {
             "frontend": 10,
             "backend": 50,
             "category": "integration",
-            "effect": "Эффект не посчитан"
+            "effect": "+2000mln GMV"
         },
         {
             "id": 3,
