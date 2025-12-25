@@ -1,300 +1,404 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Roadmap Q4 2025 - omniQ_planner</title>
-<style>
-:root {
-  --font-family: 'Arial', sans-serif;
-  --color-bg: #121212;
-  --color-bg-card: #1E1E1E;
-  --color-text: #EEEEEE;
-  --color-text-secondary: #BBBBBB;
-  --color-primary: #E60012; /* active dev (красный) */
-  --color-research: #FFD700; /* research (желтый) */
-  --color-develop: #777777;  /* обычный dev (серый) */
-  --bar-height: 30px;
-  --bar-radius: 8px;
-}
-
-body {
-  margin: 0;
-  padding: 20px;
-  background: var(--color-bg);
-  font-family: var(--font-family);
-  color: var(--color-text);
-}
-
-.roadmap-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.roadmap-header h1 {
-  font-size: 26px;
-  margin: 0;
-}
-
-.roadmap-header p {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-}
-
-.card-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.feature-card {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.feature-name {
-  font-weight: bold;
-  padding: 8px 12px;
-  background: var(--color-bg-card);
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  word-break: break-word;
-}
-
-.timeline-wrapper {
-  overflow-x: auto;
-}
-
-.timeline {
-  display: flex;
-  gap: 4px;
-  padding: 12px;
-  min-width: 600px;
-  background: var(--color-bg-card);
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.week {
-  flex: 1;
-  height: var(--bar-height);
-  border-radius: var(--bar-radius);
-  background: #2a2a2a;
-  color: var(--color-text-secondary);
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  text-align: center;
-  position: relative;
-  min-width: 60px;
-  transition: all 0.3s ease;
-}
-
-.week.current {
-  background: #3a3a3a;
-  font-weight: bold;
-  color: var(--color-text);
-}
-
-.week.research {
-  background: var(--color-research) !important;
-  color: #000;
-}
-
-.week.develop {
-  background: var(--color-develop) !important;
-  color: var(--color-text);
-}
-
-.week.develop.current {
-  background: var(--color-primary) !important;
-  color: #fff;
-}
-
-.week span {
-  position: relative;
-  z-index: 1;
-}
-
-/* Легенда и прогресс */
-.footer {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.legend {
-  display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.legend-box {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-}
-
-.legend-research { background: var(--color-research); }
-.legend-develop { background: var(--color-develop); }
-.legend-develop-active { background: var(--color-primary); }
-
-/* Прогресс бар */
-.progress-container {
-  background: var(--color-bg-card);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-}
-
-.progress-label {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  margin-bottom: 6px;
-}
-
-.progress-bar {
-  height: 16px;
-  border-radius: 8px;
-  background: #333;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--color-success);
-  width: 0;
-}
-
-/* Адаптив */
-@media (max-width: 768px) {
-  .timeline {
-    min-width: unset;
-    padding: 8px;
-  }
-}
-</style>
-</head>
-<body>
-
-<div class="roadmap-header">
-  <h1>Roadmap Q4 2025</h1>
-  <p>B2B RTE · Магнит OMNI</p>
-</div>
-
-<div class="card-container" id="card-container"></div>
-
-<div class="footer">
-  <div class="legend">
-    <div class="legend-item">
-      <div class="legend-box legend-research"></div> Discovery
-    </div>
-    <div class="legend-item">
-      <div class="legend-box legend-develop"></div> Backlog
-    </div>
-    <div class="legend-item">
-      <div class="legend-box legend-develop-active"></div> In Progress
-    </div>
-  </div>
-
-  <div class="progress-container">
-    <div class="progress-label" id="progress-label">Выполнение квартала: 0%</div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-const features = [
-  { title: '[VA] Мобильное приложение', weeks: {0:'D',1:'D',2:'D',3:'D',4:'D',5:'D'} },
-  { title: '[VA] Ролевая модель (доступ к вендорам)', weeks: {2:'R',3:'R',4:'D',5:'D',6:'D',7:'D',8:'D',9:'D'} },
-  { title: '[VA] Ролевая модель (доступ к разделам)', weeks: {0:'R',1:'R',2:'D',3:'D',4:'D',5:'D',6:'D',7:'D'} },
-  { title: '[INT] Интеграция меню/заказов/стоп-листов с Rostics', weeks: {4:'R',5:'R',6:'D',7:'D',8:'D',9:'D'} },
-  { title: '[INT] Интеграция блок-листов с Rostics', weeks: {4:'R',5:'R',6:'D',7:'D',8:'D',9:'D'} },
-  { title: '[INT] Причины отключения вендоров', weeks: {6:'R',7:'R',8:'D',9:'D'} },
-  { title: '[VA] Раздел "Поддержка"', weeks: {4:'R',5:'R',6:'R',7:'R',8:'R',9:'R',10:'D',11:'D',12:'D',13:'D'} },
-  { title: '[VA] Самовывоз', weeks: {0:'R',1:'R',2:'D',3:'D'} },
-  { title: '[Б2Б] Анкета саморегистрации + кастомизация оферт', weeks: {6:'R',7:'R',8:'R',9:'R',10:'D',11:'D',12:'D',13:'D'} }
-];
-
-const startDate = new Date(2025, 8, 22);
-const totalWeeks = 14;
-const today = new Date();
-const cardContainer = document.getElementById('card-container');
-let completedTasks = 0;
-
-features.forEach(f => {
-  const card = document.createElement('div');
-  card.className = 'feature-card';
-
-  const nameDiv = document.createElement('div');
-  nameDiv.className = 'feature-name';
-  nameDiv.textContent = f.title;
-  card.appendChild(nameDiv);
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'timeline-wrapper';
-  const timeline = document.createElement('div');
-  timeline.className = 'timeline';
-
-  let taskDone = false;
-
-  for(let i=0;i<totalWeeks;i++){
-    const weekStart = new Date(startDate);
-    weekStart.setDate(startDate.getDate()+i*7);
-    const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate()+4);
-
-    const weekDiv = document.createElement('div');
-    weekDiv.className='week';
-    const startText = `${('0'+weekStart.getDate()).slice(-2)}.${('0'+(weekStart.getMonth()+1)).slice(-2)}`;
-    const endText = `${('0'+weekEnd.getDate()).slice(-2)}.${('0'+(weekEnd.getMonth()+1)).slice(-2)}`;
-    weekDiv.innerHTML=`<span>${startText}-${endText}</span>`;
-
-    const isCurrent = today>=weekStart && today<=weekEnd;
-    if(isCurrent) weekDiv.classList.add('current');
-
-    if(f.weeks[i]){
-      if(f.weeks[i]==='R') weekDiv.classList.add('research');
-      else if(f.weeks[i]==='D'){
-        weekDiv.classList.add('develop');
-        if(isCurrent) weekDiv.classList.add('current','develop');
-        if(weekEnd<today) taskDone=true;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roadmap Q4 2025 - omniQ_planner</title>
+    <style>
+      :root {
+        --font-family: 'Arial', sans-serif;
+        --color-bg: #121212;
+        --color-bg-card: #1E1E1E;
+        --color-text: #EEEEEE;
+        --color-text-secondary: #BBBBBB;
+        --color-primary: #E60012;
+        /* active dev (красный) */
+        --color-research: #FFD700;
+        /* research (желтый) */
+        --color-develop: #777777;
+        /* обычный dev (серый) */
+        --bar-height: 30px;
+        --bar-radius: 8px;
       }
-    }
 
-    timeline.appendChild(weekDiv);
-  }
+      body {
+        margin: 0;
+        padding: 20px;
+        background: var(--color-bg);
+        font-family: var(--font-family);
+        color: var(--color-text);
+      }
 
-  if(taskDone) completedTasks++;
-  wrapper.appendChild(timeline);
-  card.appendChild(wrapper);
-  cardContainer.appendChild(card);
-});
+      .roadmap-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-const percent=Math.round((completedTasks/features.length)*100);
-document.getElementById('progress-label').textContent=`Выполнение квартала: ${percent}%`;
-const fill=document.getElementById('progress-fill');
-setTimeout(()=>{fill.style.transition='width 1s ease-in-out'; fill.style.width=percent+'%';},200);
+      .roadmap-header h1 {
+        font-size: 26px;
+        margin: 0;
+      }
 
-window.addEventListener('load',()=>{
-  const currentWeek=document.querySelector('.week.current');
-  if(currentWeek) currentWeek.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-});
-</script>
+      .roadmap-header p {
+        font-size: 14px;
+        color: var(--color-text-secondary);
+      }
 
-</body>
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .feature-card {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .feature-name {
+        font-weight: bold;
+        padding: 8px 12px;
+        background: var(--color-bg-card);
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        word-break: break-word;
+      }
+
+      .timeline-wrapper {
+        overflow-x: auto;
+      }
+
+      .timeline {
+        display: flex;
+        gap: 4px;
+        padding: 12px;
+        min-width: 600px;
+        background: var(--color-bg-card);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .week {
+        flex: 1;
+        height: var(--bar-height);
+        border-radius: var(--bar-radius);
+        background: #2a2a2a;
+        color: var(--color-text-secondary);
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        text-align: center;
+        position: relative;
+        min-width: 60px;
+        transition: all 0.3s ease;
+      }
+
+      .week.current {
+        background: #3a3a3a;
+        font-weight: bold;
+        color: var(--color-text);
+      }
+
+      .week.research {
+        background: var(--color-research) !important;
+        color: #000;
+      }
+
+      .week.develop {
+        background: var(--color-develop) !important;
+        color: var(--color-text);
+      }
+
+      .week.develop.current {
+        background: var(--color-primary) !important;
+        color: #fff;
+      }
+
+      .week span {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Легенда и прогресс */
+      .footer {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .legend {
+        display: flex;
+        gap: 20px;
+        font-size: 13px;
+        color: var(--color-text-secondary);
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .legend-box {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+      }
+
+      .legend-research {
+        background: var(--color-research);
+      }
+
+      .legend-develop {
+        background: var(--color-develop);
+      }
+
+      .legend-develop-active {
+        background: var(--color-primary);
+      }
+
+      /* Прогресс бар */
+      .progress-container {
+        background: var(--color-bg-card);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      }
+
+      .progress-label {
+        font-size: 13px;
+        color: var(--color-text-secondary);
+        margin-bottom: 6px;
+      }
+
+      .progress-bar {
+        height: 16px;
+        border-radius: 8px;
+        background: #333;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--color-success);
+        width: 0;
+      }
+
+      /* Адаптив */
+      @media (max-width: 768px) {
+        .timeline {
+          min-width: unset;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="roadmap-header">
+      <h1>Roadmap Q1 2026</h1>
+      <p>B2B RTE · Магнит OMNI</p>
+    </div>
+    <div class="card-container" id="card-container"></div>
+    <div class="footer">
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-box legend-research"></div> Discovery
+        </div>
+        <div class="legend-item">
+          <div class="legend-box legend-develop"></div> Backlog
+        </div>
+        <div class="legend-item">
+          <div class="legend-box legend-develop-active"></div> In Progress
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-label" id="progress-label">Выполнение квартала: 0%</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const features = [{
+        title: 'Передача типа отчета в rte-reports',
+        weeks: {
+          0: 'D'
+        }
+      }, {
+        title: 'Управление лесенкой стоимости доставки в зависимости от суммы заказа в админке',
+        weeks: {
+          0: 'D',
+          1: 'D'
+        }
+      }, {
+        title: 'Управление лесенкой стоимости доставки в зависимости от суммы заказа в приложении для ресторанов',
+        weeks: {
+          2: 'D',
+          3: 'D'
+        }
+      }, {
+        title: 'Управление лесенкой стоимости доставки в зависимости от суммы заказа с помощью импорта .csv файла',
+        weeks: {
+          3: 'D',
+          4: 'D'
+        }
+      }, {
+        title: 'Управление периодом действия ставки комиссии в админке',
+        weeks: {
+          1: 'D',
+          2: 'D'
+        }
+      }, {
+        title: 'Загрузка меню чейна с помощью .csv в админке',
+        weeks: {
+          1: 'D',
+          2: 'D'
+        }
+      }, {
+        title: 'Интерфейс для коммуникации с поддержкой в приложении для ресторанов',
+        weeks: {
+          2: 'D',
+          3: 'D',
+          4: 'D',
+          5: 'D'
+        }
+      }, {
+        title: 'Интерфейс для управления ролевой моделью в приложении для ресторанов',
+        weeks: {
+          3: 'D',
+          4: 'D',
+          5: 'D'
+        }
+      }, {
+        title: 'Передача подменного номера телефона для связи ресторана с клиентом',
+        weeks: {
+          0: 'R',
+          1: 'R',
+          2: 'R',
+          3: 'D',
+          4: 'D',
+          5: 'D'
+        }
+      }, {
+        title: 'Интеграция заказов, контента и слотов с Grow Food',
+        weeks: {
+          4: 'D',
+          5: 'D',
+          6: 'D',
+          7: 'D',
+          8: 'D',
+          9: 'D'
+        }
+      }, {
+        title: 'Кастомизация шаблона письма с отчетами из rte-reports',
+        weeks: {
+          4: 'R',
+          5: 'D',
+          6: 'D',
+          7: 'D'
+        }
+      }, {
+        title: 'Интеграция заказов и контента с Азбука Вкуса',
+        weeks: {
+          4: 'R',
+          5: 'R',
+          6: 'R',
+          7: 'D',
+          8: 'D',
+          9: 'D',
+          10: 'D',
+          11: 'D'
+        }
+      }, {
+        title: 'Включение 3PL для заказов Rostics',
+        weeks: {
+          0: 'R',
+          1: 'R',
+          2: 'R',
+          3: 'R'
+        }
+      }, {
+        title: 'Сквозная аналитика в приложении для ресторанов',
+        weeks: {
+          4: 'R',
+          5: 'R',
+          6: 'R',
+          7: 'R'
+        }
+      }, {
+        title: 'Retry-заказы в интеграциях',
+        weeks: {
+          8: 'R',
+          9: 'R',
+          10: 'R',
+          11: 'R'
+        }
+      }];
+      const startDate = new Date(2026, 0, 12);
+      const totalWeeks = 12;
+      const today = new Date();
+      const cardContainer = document.getElementById('card-container');
+      let completedTasks = 0;
+      features.forEach(f => {
+        const card = document.createElement('div');
+        card.className = 'feature-card';
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'feature-name';
+        nameDiv.textContent = f.title;
+        card.appendChild(nameDiv);
+        const wrapper = document.createElement('div');
+        wrapper.className = 'timeline-wrapper';
+        const timeline = document.createElement('div');
+        timeline.className = 'timeline';
+        let taskDone = false;
+        for (let i = 0; i < totalWeeks; i++) {
+          const weekStart = new Date(startDate);
+          weekStart.setDate(startDate.getDate() + i * 7);
+          const weekEnd = new Date(weekStart);
+          weekEnd.setDate(weekEnd.getDate() + 4);
+          const weekDiv = document.createElement('div');
+          weekDiv.className = 'week';
+          const startText = `${('0'+weekStart.getDate()).slice(-2)}.${('0'+(weekStart.getMonth()+1)).slice(-2)}`;
+          const endText = `${('0'+weekEnd.getDate()).slice(-2)}.${('0'+(weekEnd.getMonth()+1)).slice(-2)}`;
+          weekDiv.innerHTML = `
+            <span>${startText}-${endText}</span>`;
+          const isCurrent = today >= weekStart && today <= weekEnd;
+          if (isCurrent) weekDiv.classList.add('current');
+          if (f.weeks[i]) {
+            if (f.weeks[i] === 'R') weekDiv.classList.add('research');
+            else if (f.weeks[i] === 'D') {
+              weekDiv.classList.add('develop');
+              if (isCurrent) weekDiv.classList.add('current', 'develop');
+              if (weekEnd < today) taskDone = true;
+            }
+          }
+          timeline.appendChild(weekDiv);
+        }
+        if (taskDone) completedTasks++;
+        wrapper.appendChild(timeline);
+        card.appendChild(wrapper);
+        cardContainer.appendChild(card);
+      });
+      const percent = Math.round((completedTasks / features.length) * 100);
+      document.getElementById('progress-label').textContent = `Выполнение квартала: ${percent}%`;
+      const fill = document.getElementById('progress-fill');
+      setTimeout(() => {
+        fill.style.transition = 'width 1s ease-in-out';
+        fill.style.width = percent + '%';
+      }, 200);
+      window.addEventListener('load', () => {
+        const currentWeek = document.querySelector('.week.current');
+        if (currentWeek) currentWeek.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest'
+        });
+      });
+    </script>
+  </body>
 </html>
